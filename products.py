@@ -21,7 +21,6 @@ if os.path.isfile('products.csv'):
 		# with open('products.csv', 'r', ecoding = 'utf-8') as f:
 		# continue、break 只能在回圈內寫
 		# continue 繼續: 掠過下面的程式,跑下一輪for loop,通常是寫在比較高的位置
-
 else:
 	print('找不到檔案......')
 	# os = operating system(作業系統) = 電腦的政府
