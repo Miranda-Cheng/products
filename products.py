@@ -1,11 +1,19 @@
-# 讀取檔案
+# 檢查檔案在不在
+import os
+
 products = []
-with open('products.csv', 'r') as f:
-	for line in f:
-		if '商品,價格' in line:
-			continue
-		name, price = line.strip().split(',')
-		products.append([name, price])
+	# 不管疫開始檔案有沒有存在，等一下都要寫入，所以提出來寫
+
+if os.path.isfile('products.csv'):
+	print('yeah!找到檔案了!')
+	#讀取檔案
+	with open('products.csv', 'r') as f:
+		for line in f:
+			if '商品,價格' in line:
+				continue
+			name, price = line.strip().split(',')
+			products.append([name, price])
+	print(products)
 		# split(',') 遇到,就切割
 		# split切割完的結果是清單
 		# strip() 去調換行(\n)符號
@@ -14,7 +22,12 @@ with open('products.csv', 'r') as f:
 		# continue、break 只能在回圈內寫
 		# continue 繼續: 掠過下面的程式,跑下一輪for loop,通常是寫在比較高的位置
 
-print(products)
+else:
+	print('找不到檔案......')
+	# os = operating system(作業系統) = 電腦的政府
+	# 相對路徑(與此程式檔相同路徑) :輸入檔名
+	# 絕對路徑 :輸入地址
+	# 要用再查
 
 # 使用者輸入
 while True:
